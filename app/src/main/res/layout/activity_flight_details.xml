@@ -8,7 +8,7 @@
     tools:context=".FlightDetailsActivity">
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:ems="10"
