@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".FlightDetailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+    <EditText
+        android:id="@+id/des"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="destination" />
+
+    <EditText
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="No." />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Date" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Time" />
+
+</LinearLayout>
