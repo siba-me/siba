@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FlightDetailsActivity"></activity>
+        <activity android:name=".FlightDetailsActivity" />
+        <activity android:name=".MyFlights" />
+        <activity android:name=".MyTrip" />
+        <activity android:name=".Restaurants"></activity>
     </application>
 
 </manifest>

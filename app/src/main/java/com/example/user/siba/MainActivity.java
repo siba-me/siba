@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main2);
+            setContentView(R.layout.activity_main);
         }
 
 
@@ -23,18 +23,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.item1:
-                    Toast.makeText(this, "item menu 1 ", Toast.LENGTH_SHORT).show();
+                case R.id.airports:
+                    Toast.makeText(this, "Airports ", Toast.LENGTH_SHORT).show();
                     break;
             }
             switch (item.getItemId()) {
-                case R.id.item2:
-                    Toast.makeText(this, "item menu 2 ", Toast.LENGTH_SHORT).show();
+                case R.id.flight:
+                    Toast.makeText(this, "My Flights ", Toast.LENGTH_SHORT).show();
                     break;
             }
             switch (item.getItemId()) {
-                case R.id.item3:
-                    Toast.makeText(this, "item menu 3 ", Toast.LENGTH_SHORT).show();
+                case R.id.trip:
+                    Toast.makeText(this, "My trip ", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            switch (item.getItemId()) {
+                case R.id.settings:
+                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
                     break;
             }
             return true;
