@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        // Menu
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.airports:
