@@ -10,40 +10,34 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class Restaurants extends AppCompatActivity implements AdapterView.OnItemClickListener{
-    ArrayList<String> arrayList = new ArrayList<>();
-    ListView res;
-    ArrayAdapter<String> arrayAdapter;
+    ArrayList<Item> res;
+    CustomAdapter arrayAdapter;
+    ListView res1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_flights);
+        setContentView(R.layout.activity_restaurants);
 
-        res = (ListView) findViewById(R.id.flist);
+        res1 = findViewById(R.id.res1);
+        res= new ArrayList<>();
+        res.add(new Item(R.id.imageView,"siba"));
+        res.add(new Item(R.id.imageView,"siba"));
+        res.add(new Item(R.id.imageView,"siba"));
 
-        arrayList.add("CafeCafe");
-        arrayList.add("Cafe Joe");
-        arrayList.add("KaKao");
-        arrayList.add("Schmoozy Tapas Bar");
-        arrayList.add("Aroma Espresso bar");
-        arrayList.add("Burger Ranch");
-        arrayList.add("Segafredo");
-        arrayList.add("Pizza hut");
-        arrayList.add("La Farina");
-        arrayList.add("RedHot");
+        arrayAdapter = new CustomAdapter(this,R.layout.custom_row,res);
+        res1.setAdapter(arrayAdapter);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        res.setAdapter(arrayAdapter);
-        res.setOnItemClickListener(this);
+
+
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String selectedItem = arrayList.get(position);
-        if (selectedItem == "Germany") {
 
-        }
+
     }
 }
 
