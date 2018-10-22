@@ -3,6 +3,7 @@ package com.example.user.siba;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,12 +22,15 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_my_parking);
         button_image = (Button)findViewById(R.id.button_image);
         imageView = (ImageView)findViewById(R.id.imageview);
+
+        button_image.setOnClickListener(this);
         }
+
 
 
     @Override
     public void onClick(View v) {
-
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
     }
     @Override
