@@ -32,8 +32,8 @@ public class MyTrip extends AppCompatActivity {
                 break;
         }
         switch (item.getItemId()) {
-            case R.id.settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            case R.id.myParking:
+                Intent i= new Intent(this,MyParking.class);
                 break;
         }
 

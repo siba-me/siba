@@ -52,17 +52,17 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
         }
         switch (item.getItemId()) {
             case R.id.flight:
-                Toast.makeText(this, "My Flights ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,MyFlights.class);
                 break;
         }
         switch (item.getItemId()) {
             case R.id.trip:
-                Toast.makeText(this, "My trip ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,MyTrip.class);
                 break;
         }
         switch (item.getItemId()) {
-            case R.id.settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            case R.id.myParking:
+                Intent i= new Intent(this,MyParking.class);
                 break;
         }
 

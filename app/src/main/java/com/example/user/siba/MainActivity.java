@@ -53,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent i= new Intent(this,MainActivity.class);
                     break;
             }
+            switch (item.getItemId()) {
+                case R.id.myParking:
+                    Intent i= new Intent(this,MyParking.class);
+                    break;
+            }
             return true;
 
         }
