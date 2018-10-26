@@ -13,9 +13,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MyFlights extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    ArrayList<String> arrayList= new ArrayList<>();
+    ArrayList<Item> res;
+    CustomAdapter arrayAdapter;
     ListView flist;
-    ArrayAdapter<String> arrayAdapter;
 
 
     @Override
@@ -23,36 +23,29 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_flights);
 
-        flist= (ListView) findViewById(R.id.flist);
+        flist = findViewById(R.id.flist);
+        res= new ArrayList<>();
+        res.add(new Item(R.drawable.dog,"1"));
+        res.add(new Item(R.drawable.dog,"2"));
+        res.add(new Item(R.drawable.dog,"3"));
 
-
-        arrayAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        arrayAdapter = new CustomAdapter(this,R.layout.custom_row,res);
         flist.setAdapter(arrayAdapter);
+
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String selectedItem= arrayList.get(position);
-        if (selectedItem=="Germany") {
 
-        }
-    }
     @Override
     // Menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.airports:
-                Toast.makeText(this, "Airports ", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        switch (item.getItemId()) {
             case R.id.flight:
-                Toast.makeText(this, "My Flights ", Toast.LENGTH_SHORT).show();
+               Intent i = new Intent(this,MyFlights.class);
                 break;
         }
         switch (item.getItemId()) {
             case R.id.trip:
-                Toast.makeText(this, "My trip ", Toast.LENGTH_SHORT).show();
+               Intent i = new Intent(this,MyTrip.class);
                 break;
         }
         switch (item.getItemId()) {
@@ -70,4 +63,8 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
 
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 }

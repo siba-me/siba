@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.app.AlertDialog;
 
-public class FlightDetailsActivity extends AppCompatActivity {
-    EditText date,number,time,name;
+public class FlightDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText date,number,time;
     TextView t1;
     Button button,des;
     
@@ -21,10 +21,13 @@ public class FlightDetailsActivity extends AppCompatActivity {
         date = (EditText) findViewById(R.id.date);
         number = (EditText) findViewById(R.id.number);
         time = (EditText) findViewById(R.id.time);
-        name = (EditText) findViewById(R.id.name);
         t1 = (TextView) findViewById(R.id.title);
         button = (Button) findViewById(R.id.button);
         des = (Button) findViewById(R.id.des);
+        date.setOnClickListener(this);
+        number.setOnClickListener(this);
+        time.setOnClickListener(this);
+        des.setOnClickListener(this);
     }
     public void showAlertDialogButtonClicked(View view) {
 
@@ -57,13 +60,7 @@ public class FlightDetailsActivity extends AppCompatActivity {
     }
 
 
-
-
     public void onClick(View v) {
-
-        if(v==des){
-            showAlertDialogButtonClicked(v);
-        }
-
     }
+
 }

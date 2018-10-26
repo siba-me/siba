@@ -32,9 +32,6 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
         arrayAdapter = new CustomAdapter(this,R.layout.custom_row,res);
         res1.setAdapter(arrayAdapter);
 
-
-
-
     }
 
     @Override
@@ -45,11 +42,6 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
     @Override
     // Menu
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.airports:
-                Toast.makeText(this, "Airports ", Toast.LENGTH_SHORT).show();
-                break;
-        }
         switch (item.getItemId()) {
             case R.id.flight:
                 Intent i = new Intent(this,MyFlights.class);

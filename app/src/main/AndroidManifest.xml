@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MyFlights">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MyParking">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,15 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".FlightDetailsActivity" />
-        <activity android:name=".MyFlights" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".MyTrip" />
         <activity android:name=".AlertDialogActivity" />
         <activity android:name=".SignInActivity" />

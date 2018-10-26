@@ -17,18 +17,13 @@ public class MyTrip extends AppCompatActivity {
     // Menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.airports:
-                Toast.makeText(this, "Airports ", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        switch (item.getItemId()) {
             case R.id.flight:
-                Toast.makeText(this, "My Flights ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,MyFlights.class);
                 break;
         }
         switch (item.getItemId()) {
             case R.id.trip:
-                Toast.makeText(this, "My trip ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,MyTrip.class);
                 break;
         }
         switch (item.getItemId()) {
