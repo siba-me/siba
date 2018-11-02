@@ -1,6 +1,7 @@
 package com.example.user.siba;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,9 +25,7 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
         t1 = (TextView) findViewById(R.id.title);
         button = (Button) findViewById(R.id.button);
         des = (Button) findViewById(R.id.des);
-        date.setOnClickListener(this);
-        number.setOnClickListener(this);
-        time.setOnClickListener(this);
+        button.setOnClickListener(this);
         des.setOnClickListener(this);
     }
     public void showAlertDialogButtonClicked(View view) {
@@ -61,6 +60,10 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
 
 
     public void onClick(View v) {
+        if(v==button){
+            Intent i = new Intent(this,MyTrip.class);
+            startActivity(i);
+        }
     }
 
 }

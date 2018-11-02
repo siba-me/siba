@@ -1,5 +1,6 @@
 package com.example.user.siba;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -94,5 +95,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         signInWithEmailAndPassword("sibaggg", "1234554321");
+        if(v==done){
+            Intent i = new Intent(this, MyTrip.class);
+            startActivity(i);
+        }
     }
 }
