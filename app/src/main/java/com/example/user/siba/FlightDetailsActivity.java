@@ -10,24 +10,58 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.app.AlertDialog;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FlightDetailsActivity extends AppCompatActivity implements View.OnClickListener {
     EditText date,number,time;
     TextView t1;
     Button button,des;
-    
+
+    FirebaseUser currentUser;
+    private FirebaseAuth mAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_details);
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
+
+
+
         date = (EditText) findViewById(R.id.date);
         number = (EditText) findViewById(R.id.number);
         time = (EditText) findViewById(R.id.time);
         t1 = (TextView) findViewById(R.id.title);
         button = (Button) findViewById(R.id.button);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserFlight userFlight = new UserFlight(date.getText().toString(), number.getText().toString(), time.getText().toString() ,des.getText().toString());
+                Intent i = new Intent(FlightDetailsActivity.this,MyTrip.class);
+                myRef.child(currentUser.getUid()).child("Flights").push().setValue(userFlight);
+                startActivity(i);
+            }
+        });
         des = (Button) findViewById(R.id.des);
         button.setOnClickListener(this);
         des.setOnClickListener(this);
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        currentUser = mAuth.getCurrentUser();
+    }
+
     public void showAlertDialogButtonClicked(View view) {
 
         // setup the alert builder
@@ -61,9 +95,9 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
 
     public void onClick(View v) {
         if(v==button){
-            Intent i = new Intent(this,MyTrip.class);
-            startActivity(i);
+
         }
     }
+
 
 }
