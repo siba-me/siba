@@ -35,6 +35,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         name = (EditText) findViewById(R.id.name);
         password = (EditText) findViewById(R.id.password);
         done = (Button) findViewById(R.id.done);
+        done.setOnClickListener(this);
 
     }
 
@@ -79,7 +80,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+                            Intent i = new Intent(SignInActivity.this, FlightDetailsActivity.class);
+                            startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -94,10 +96,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     }
     @Override
     public void onClick(View v) {
-        signInWithEmailAndPassword("sibaggg", "1234554321");
+        //signInWithEmailAndPassword("siba.azab268@gmail.com", "siba12345");
         if(v==done){
-            Intent i = new Intent(this, MyTrip.class);
-            startActivity(i);
+            signInWithEmailAndPassword(name.getText().toString(),password.getText().toString());
+
         }
     }
 }

@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         email = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.pass);
         btDone = (Button) findViewById(R.id.btDone);
-         btDone.setOnClickListener(this);
+        btDone.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
     }
     @Override

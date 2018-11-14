@@ -16,9 +16,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FlightDetailsActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText date,number,time;
+    EditText date,number,time,des;
     TextView t1;
-    Button button,des;
+    Button button;
 
     FirebaseUser currentUser;
     private FirebaseAuth mAuth;
@@ -33,27 +33,24 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
         final DatabaseReference myRef = database.getReference("Users");
         mAuth = FirebaseAuth.getInstance();
 
-
-
         date = (EditText) findViewById(R.id.date);
         number = (EditText) findViewById(R.id.number);
         time = (EditText) findViewById(R.id.time);
         t1 = (TextView) findViewById(R.id.title);
         button = (Button) findViewById(R.id.button);
-
+        des = (EditText) findViewById(R.id.des);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UserFlight userFlight = new UserFlight(date.getText().toString(), number.getText().toString(), time.getText().toString() ,des.getText().toString());
-                Intent i = new Intent(FlightDetailsActivity.this,MyTrip.class);
+                Intent i = new Intent(FlightDetailsActivity.this, MyTrip.class);
                 myRef.child(currentUser.getUid()).child("Flights").push().setValue(userFlight);
                 startActivity(i);
             }
         });
-        des = (Button) findViewById(R.id.des);
-        button.setOnClickListener(this);
-        des.setOnClickListener(this);
+
+
     }
     @Override
     public void onStart() {
@@ -62,35 +59,35 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
         currentUser = mAuth.getCurrentUser();
     }
 
-    public void showAlertDialogButtonClicked(View view) {
-
-        // setup the alert builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose a country");
-
-        // add a radio button list
-        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
-        int checkedItem = 1; // cow
-        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // user checked an item
-            }
-        });
-
-        // add OK and Cancel buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // user clicked OK
-            }
-        });
-        builder.setNegativeButton("Cancel", null);
-
-        // create and show the alert dialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+//    public void showAlertDialogButtonClicked(View view) {
+//
+//        // setup the alert builder
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Choose a country");
+//
+//        // add a radio button list
+//        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
+//        int checkedItem = 1; // cow
+//        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // user checked an item
+//            }
+//        });
+//
+//        // add OK and Cancel buttons
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // user clicked OK
+//            }
+//        });
+//        builder.setNegativeButton("Cancel", null);
+//
+//        // create and show the alert dialog
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
 
 
     public void onClick(View v) {
