@@ -3,8 +3,10 @@ package com.example.user.siba;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MyParking extends AppCompatActivity implements View.OnClickListener{
     private static final int CAMERA_REQUEST = 0;
@@ -35,7 +42,32 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
         if (requestCode == CAMERA_REQUEST && resultCode== Activity.RESULT_OK){
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageView2.setImageBitmap(photo);
+            saveImage(bitmap);
+            String imagePath= saveImage(bitmap);
+            SharedPreferences pref = getSharedPreferences("mypref",MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("image",imagePath);
+            editor.commit();
         }
+    }
+    public String saveImage(Bitmap bitmap){
+        File root = Environment.getExternalStorageDirectory();
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = root.getAbsolutePath()+"/DCIM/Camera/IMG_"+timeStamp+".jpg";
+        File file = new File(filePath);//creating an object from type File
+        try
+        {
+            file.createNewFile();
+            FileOutputStream ostream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
+            ostream.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(this,"Failed to save image",Toast.LENGTH_SHORT).show();
+        }
+        return filePath;
+
     }
 
     @Override
