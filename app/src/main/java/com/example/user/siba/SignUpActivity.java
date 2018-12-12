@@ -66,12 +66,34 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+    boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
 
     @Override
     public void onClick(View v) {
-        if(v==btDone){
-            Intent i = new Intent(this,FlightDetailsActivity.class);
-            startActivity(i);
+
+        createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString());
+
+        if (v == btDone) {
+            String getEmail = email.getText().toString();
+
+            if ((userName.equals("") || pass == null || email.equals("")) || (!isEmailValid(getEmail))) {
+
+                //Check if one or more fields are empty
+                if (userName.equals("") || pass == null || email.equals(""))
+                    Toast.makeText(this, "There Are Empty Fields", Toast.LENGTH_SHORT).show();
+
+                // Check if email id is valid or not
+                if (!isEmailValid(getEmail))
+                    Toast.makeText(this, "\"Your Email Id is Invalid.\"", Toast.LENGTH_SHORT).show();
+            } else {
+                createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString());
+                Intent i = new Intent(this, SignInActivity.class);
+                startActivity(i);
+
+            }
+
         }
     }
 }

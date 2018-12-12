@@ -3,6 +3,7 @@ package com.example.user.siba;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -69,6 +70,11 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
         }
         return true;
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
     }
 
 }

@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,35 +60,40 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
         currentUser = mAuth.getCurrentUser();
     }
 
-//    public void showAlertDialogButtonClicked(View view) {
-//
-//        // setup the alert builder
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Choose a country");
-//
-//        // add a radio button list
-//        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
-//        int checkedItem = 1; // cow
-//        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                // user checked an item
-//            }
-//        });
-//
-//        // add OK and Cancel buttons
-//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                // user clicked OK
-//            }
-//        });
-//        builder.setNegativeButton("Cancel", null);
-//
-//        // create and show the alert dialog
-//        AlertDialog dialog = builder.create();
-//        dialog.show();
-//    }
+    public void showAlertDialogButtonClicked(View view) {
+
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose a country");
+
+        // add a radio button list
+        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
+        int checkedItem = 1; // cow
+        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user checked an item
+            }
+        });
+
+        // add OK and Cancel buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked OK
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.menu,menu);
+    return true;
+}
 
 
     public void onClick(View v) {

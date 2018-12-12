@@ -35,21 +35,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (item.getItemId()) {
                 case R.id.flight:
                     Intent i = new Intent(this, MyFlights.class);
+                    startActivity(i);
                     break;
             }
             switch (item.getItemId()) {
                 case R.id.trip:
                     Intent i = new Intent(this, MyTrip.class);
+                    startActivity(i);
                     break;
             }
-            switch (item.getItemId()) {
-                case R.id.logout:
-                    Intent i= new Intent(this,MainActivity.class);
-                    break;
-            }
+
             switch (item.getItemId()) {
                 case R.id.myParking:
                     Intent i= new Intent(this,MyParking.class);
+                    startActivity(i);
                     break;
             }
             return true;

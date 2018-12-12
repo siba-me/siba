@@ -28,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
+        android:text="password"
         android:visibility="visible" />
 
     <LinearLayout

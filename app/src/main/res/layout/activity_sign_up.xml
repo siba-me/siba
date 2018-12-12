@@ -29,15 +29,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="E-mail" />
+        android:text="email" />
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password" />
+        android:inputType="textPassword"
+        android:text="password"
+        android:textAlignment="textStart" />
 
     <Button
         android:id="@+id/btDone"
