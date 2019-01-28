@@ -47,6 +47,7 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
                 UserFlight userFlight = new UserFlight(date.getText().toString(), number.getText().toString(), time.getText().toString() ,des.getText().toString());
                 Intent i = new Intent(FlightDetailsActivity.this, MyTrip.class);
                 myRef.child(currentUser.getUid()).child("Flights").push().setValue(userFlight);
+                i.putExtra(currentUser.getUid(), "UID");
                 startActivity(i);
             }
         });

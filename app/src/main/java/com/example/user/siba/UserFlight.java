@@ -46,5 +46,13 @@ public class UserFlight {
         return des;
     }
 
-
+    @Override
+    public String toString() {
+        return "UserFlight{" +
+                "date='" + date + '\'' +
+                ", number='" + number + '\'' +
+                ", time='" + time + '\'' +
+                ", des='" + des + '\'' +
+                '}';
+    }
 }
