@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".FlightDetailsActivity">
@@ -14,44 +15,45 @@
         android:layout_height="55dp"
         android:text="Flight Details"
         android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
+        android:textAppearance="@android:style/TextAppearance.Holo.Large"
+        android:textColor="@android:color/black" />
 
     <EditText
         android:id="@+id/des"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="69dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="destination" />
+        android:hint="des"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="69dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Date" />
+        android:hint="Date"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/time"
         android:layout_width="match_parent"
         android:layout_height="69dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Time" />
+        android:hint="Time"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/number"
         android:layout_width="match_parent"
         android:layout_height="69dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="No." />
+        android:hint="Flight No."
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="194dp"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:text="Done"
         android:textAlignment="center"
         android:textSize="24sp" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background2"
     android:orientation="vertical"
     tools:context=".SignInActivity">
 
@@ -13,6 +14,7 @@
         android:layout_height="94dp"
         android:text="Sign In"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="30sp" />
 
     <EditText
@@ -20,16 +22,16 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="E-mail"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:ems="10"
+        android:hint="password"
         android:inputType="textPassword"
-        android:text="password"
         android:visibility="visible" />
 
     <LinearLayout
