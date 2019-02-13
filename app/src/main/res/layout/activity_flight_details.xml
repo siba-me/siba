@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    android:gravity="center"
+    android:gravity="top|center"
     android:orientation="vertical"
     tools:context=".FlightDetailsActivity">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="86dp"
+        android:gravity="center"
         android:text="Flight Details"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Holo.Large"
@@ -23,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="69dp"
         android:ems="10"
-        android:hint="des"
+        android:hint="destination"
         android:inputType="textPersonName" />
 
     <EditText

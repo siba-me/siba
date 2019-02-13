@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,9 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
     ArrayAdapter arrayAdapter;
     ListView flist;
 
+    private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
+
+    FirebaseUser user = mAuth.getCurrentUser();
 
 
     @Override
@@ -32,17 +37,14 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_flights);
 
-        String UID = getIntent().getStringExtra("UID");
+        String UID = user.getUid();
         String link = "Users/"+UID+"/Flights";
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference reference = database.getReference(link);
 
         flist = findViewById(R.id.flist);
         res= new ArrayList<>();
-     /*   res.add(new Item(R.drawable.dog,"1"));
-        res.add(new Item(R.drawable.dog,"2"));
-        res.add(new Item(R.drawable.dog,"3"));
-*/
+        flist.setOnItemClickListener(this);
         arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,res);
         flist.setAdapter(arrayAdapter);
 
@@ -136,6 +138,10 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Intent i= new Intent(this,MyTrip.class);
+        i.putExtra("userFlight", res.get(position));
+        startActivity(i);
 
     }
 }

@@ -89,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(this, "\"Your Email Id is Invalid.\"", Toast.LENGTH_SHORT).show();
             } else {
                 createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString());
-                Intent i = new Intent(this, SignInActivity.class);
+                Intent i = new Intent(this, FlightDetailsActivity.class);
                 startActivity(i);
 
             }

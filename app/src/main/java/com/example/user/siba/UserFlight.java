@@ -1,6 +1,8 @@
 package com.example.user.siba;
 
-public class UserFlight {
+import java.io.Serializable;
+
+public class UserFlight implements Serializable{
     private String date;
     private String number;
     private String time;
@@ -50,9 +52,9 @@ public class UserFlight {
     public String toString() {
         return "UserFlight{" +
                 "date='" + date + '\'' +
-                ", number='" + number + '\'' +
+                ", Flight No='" + number + '\'' +
                 ", time='" + time + '\'' +
-                ", des='" + des + '\'' +
+                ", destination='" + des + '\'' +
                 '}';
     }
 }

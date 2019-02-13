@@ -21,8 +21,8 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
     TextView t1;
     Button button;
 
-    FirebaseUser currentUser;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
 
 
     @Override
@@ -32,7 +32,7 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("Users");
-        mAuth = FirebaseAuth.getInstance();
+
 
         date = (EditText) findViewById(R.id.date);
         number = (EditText) findViewById(R.id.number);
@@ -45,7 +45,7 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onClick(View v) {
                 UserFlight userFlight = new UserFlight(date.getText().toString(), number.getText().toString(), time.getText().toString() ,des.getText().toString());
-                Intent i = new Intent(FlightDetailsActivity.this, MyTrip.class);
+                Intent i = new Intent(FlightDetailsActivity.this, MyFlights.class);
                 myRef.child(currentUser.getUid()).child("Flights").push().setValue(userFlight);
                 i.putExtra(currentUser.getUid(), "UID");
                 startActivity(i);
@@ -61,47 +61,44 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
         currentUser = mAuth.getCurrentUser();
     }
 
-    public void showAlertDialogButtonClicked(View view) {
-
-        // setup the alert builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose a country");
-
-        // add a radio button list
-        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
-        int checkedItem = 1; // cow
-        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // user checked an item
-            }
-        });
-
-        // add OK and Cancel buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // user clicked OK
-            }
-        });
-        builder.setNegativeButton("Cancel", null);
-
-        // create and show the alert dialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-@Override
-public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu,menu);
-    return true;
-}
-
-
+    @Override
     public void onClick(View v) {
-        if(v==button){
 
-        }
+    }
+
+//    public void showAlertDialogButtonClicked(View view) {
+//
+//        // setup the alert builder
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Choose a country");
+//
+//        // add a radio button list
+//        String[] countries = {"Italy", "Spain", "France", "Portugal", "Greece",""};
+//        int checkedItem = 1; // cow
+//        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // user checked an item
+//            }
+//        });
+//
+//        // add OK and Cancel buttons
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // user clicked OK
+//            }
+//        });
+//        builder.setNegativeButton("Cancel", null);
+//
+//        // create and show the alert dialog
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
+
+
+
     }
 
 
-}
+

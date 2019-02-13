@@ -13,6 +13,8 @@ public class MyTrip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_trip);
+
+        UserFlight userFlight = (UserFlight) getIntent().getSerializableExtra("userFlight");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
