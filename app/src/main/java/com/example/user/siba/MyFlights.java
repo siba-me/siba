@@ -28,7 +28,6 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
     ListView flist;
 
     private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
-
     FirebaseUser user = mAuth.getCurrentUser();
 
 

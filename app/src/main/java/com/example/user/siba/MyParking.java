@@ -42,13 +42,14 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == CAMERA_REQUEST && resultCode== Activity.RESULT_OK){
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView2.setImageBitmap(photo);
             saveImage(bitmap);
             String imagePath= saveImage(bitmap);
             SharedPreferences pref = getSharedPreferences("mypref",MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
             editor.putString("image",imagePath);
             editor.commit();
+            imageView2.setImageBitmap(photo);
+
         }
     }
     public String saveImage(Bitmap bitmap){
