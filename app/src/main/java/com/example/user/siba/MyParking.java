@@ -26,6 +26,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -71,6 +72,7 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
         }
 
     }
+    //save photo to database
     public String saveImage(Bitmap bitmap){
         File root = Environment.getExternalStorageDirectory();
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -83,14 +85,17 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
             ostream.close();
         }
-        catch (Exception e){
+         catch (FileNotFoundException e) {
+            e.printStackTrace();}
+          catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(this,"Failed to save image",Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this,"Faild to save image", Toast.LENGTH_LONG).show();
+    }
         return filePath;
 
     }
 
+    // from bitmap to string
     public String BitMapToString ( Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,baos);
@@ -99,6 +104,8 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
         return temp;
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,16 +119,14 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(i,CAMERA_REQUEST);
 
-
-
         }
         if(v ==btGallery){
             Intent i = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(i,SELECT_IMAGE);
         }
-
-
     }
+
+
     @Override
     // Menu
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -131,12 +136,7 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
                 startActivity(i);
                 break;
         }
-        switch (item.getItemId()) {
-            case R.id.trip:
-                Intent i = new Intent(this,MyTrip.class);
-                startActivity(i);
-                break;
-        }
+
         switch (item.getItemId()) {
             case R.id.myParking:
                 Intent i= new Intent(this,MyParking.class);
@@ -150,14 +150,19 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-        switch (item.getItemId()) {
-            case R.id.logout:
-                Intent i= new Intent(this,MainActivity.class);
-                startActivity(i);
-                break;
-        }
         return true;
 
     }
-
-}
+    // from string to bitmap
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0,
+                    encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+    }

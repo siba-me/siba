@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,10 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class MyFlights extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MyFlights extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     ArrayList<UserFlight> res;
     ArrayAdapter arrayAdapter;
     ListView flist;
+    ImageButton btAdd;
 
     private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
@@ -41,6 +44,8 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference reference = database.getReference(link);
 
+        btAdd =(ImageButton) findViewById(R.id.btAdd);
+        btAdd.setOnClickListener(this);
         flist = findViewById(R.id.flist);
         res= new ArrayList<>();
         flist.setOnItemClickListener(this);
@@ -100,12 +105,7 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
                 startActivity(i);
                 break;
         }
-        switch (item.getItemId()) {
-            case R.id.trip:
-               Intent i = new Intent(this,MyTrip.class);
-                startActivity(i);
-                break;
-        }
+
         switch (item.getItemId()) {
             case R.id.myParking:
                 Intent i= new Intent(this,MyParking.class);
@@ -118,19 +118,7 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
                 startActivity(i);
                 break;
         }
-        switch (item.getItemId()) {
-            case R.id.Fdetails:
-                Intent i= new Intent(this,FlightDetailsActivity.class);
-                startActivity(i);
-                break;
-        }
 
-        switch (item.getItemId()) {
-            case R.id.logout:
-                Intent i= new Intent(this,MainActivity.class);
-                startActivity(i);
-                break;
-        }
         return true;
 
     }
@@ -141,6 +129,15 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
         Intent i= new Intent(this,MyTrip.class);
         i.putExtra("userFlight", res.get(position));
         startActivity(i);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v==btAdd){
+            Intent i = new Intent(this,FlightDetailsActivity.class);
+            startActivity(i);
+        }
 
     }
 }

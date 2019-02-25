@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.siba">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -33,7 +32,16 @@
         <activity android:name=".FlightDetailsActivity" />
         <activity android:name=".Restaurants" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".MyFlights"></activity>
+        <activity android:name=".MyFlights" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".MyIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

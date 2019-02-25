@@ -7,16 +7,26 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/MsignUp"
-        android:layout_width="200dp"
-        android:layout_height="63dp"
-        android:text="SignUp"
-        android:textAlignment="center" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="147dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/MsignUp"
+            android:layout_width="200dp"
+            android:layout_height="63dp"
+            android:backgroundTint="@android:color/transparent"
+            android:text="SignUp"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="207dp"
+        android:layout_height="156dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -24,7 +34,10 @@
             android:id="@+id/MsignIn"
             android:layout_width="200dp"
             android:layout_height="63dp"
-            android:text="SignIn" />
+            android:backgroundTint="@android:color/transparent"
+            android:text="SignIn"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="24sp" />
     </LinearLayout>
 
 </LinearLayout>

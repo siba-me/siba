@@ -50,11 +50,10 @@ public class UserFlight implements Serializable{
 
     @Override
     public String toString() {
-        return "UserFlight{" +
+        return
                 "date='" + date + '\'' +
-                ", Flight No='" + number + '\'' +
-                ", time='" + time + '\'' +
-                ", destination='" + des + '\'' +
-                '}';
+                ",       Flight No=  '" + number + '\'' +
+                ",       time='" + time + '\'' +
+                ",       destination='" + des + '\'' +"";
     }
 }
