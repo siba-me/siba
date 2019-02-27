@@ -1,5 +1,7 @@
 package com.example.user.siba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button signIn,signUp;
+    private static final int NOTIFICATION_REMINDER_NIGHT = 3;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -19,6 +22,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             signUp = (Button) findViewById(R.id.MsignUp);
             signUp.setOnClickListener(this);
             signIn.setOnClickListener(this);
+            Intent notifyIntent = new Intent(this,MyReceiver.class);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast
+
+                    (this, NOTIFICATION_REMINDER_NIGHT, notifyIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+
+            AlarmManager alarmManager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
+
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+
+                    1000 * 60 * 60 * 24, pendingIntent);
 
 
         }

@@ -11,7 +11,7 @@ public class MyReceiver extends BroadcastReceiver {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
         //this is the broadcast receiver class.
-                Intent intent1 = new Intent(context, MyIntentService.class);
+                Intent intent1 = new Intent(context, MyIntentService2.class);
                 context.startService(intent1);
             }
         }

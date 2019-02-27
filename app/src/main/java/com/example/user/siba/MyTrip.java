@@ -1,5 +1,7 @@
 package com.example.user.siba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +15,8 @@ public class MyTrip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_trip);
-
         UserFlight userFlight = (UserFlight) getIntent().getSerializableExtra("userFlight");
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

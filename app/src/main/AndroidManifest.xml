@@ -40,8 +40,16 @@
             android:exported="true" />
 
         <service
-            android:name=".MyIntentService"
-            android:exported="false"></service>
+            android:name=".MyIntentService2"
+            android:exported="false" />
+        <service
+            android:name=".MyIntentService2"
+            android:exported="false" />
+
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
