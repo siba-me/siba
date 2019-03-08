@@ -18,8 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -35,9 +41,16 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
     private static final int SELECT_IMAGE = 1;
     Button btTakePhoto, btGallery;
     ImageView imageView2;
+
+    private FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference myRef = database.getReference("Users");
+
     //A bitmap is a type of memory organization or image file format used to store digital images.
     Bitmap bitmap;
     Bitmap photo;
+    EditText info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,50 +61,31 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
         btGallery = (Button) findViewById(R.id.btGallery);
         btGallery.setOnClickListener(this);
         imageView2 = (ImageView) findViewById(R.id.imageView2);
+        info = findViewById(R.id.info);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == CAMERA_REQUEST && resultCode== Activity.RESULT_OK){
            photo = (Bitmap) data.getExtras().get("data");
             imageView2.setImageBitmap(photo);
+            String image = BitMapToString(photo);
+            ParkingL parkingL = new ParkingL(image, info.getText().toString());
+            myRef.child(currentUser.getUid()).child("Parking").push().setValue(parkingL);
 
-            String imagePath= saveImage(photo);
-            SharedPreferences pref = getSharedPreferences("mypref",MODE_PRIVATE);
-            SharedPreferences.Editor editor = pref.edit();
-            editor.putString("image",imagePath);
-            editor.commit();
-          //  imageView2.setImageBitmap(photo);
 
         }else if(requestCode == SELECT_IMAGE && resultCode == Activity.RESULT_OK){
             Uri targetUri = data.getData();
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+                String image = BitMapToString(photo);
+
             } catch (FileNotFoundException e){
                 e.printStackTrace();
 
             }
         }
+        Intent i = new Intent(this,MyParking.class);
+        startActivity(i);
 
-    }
-    //save photo to database
-    public String saveImage(Bitmap bitmap){
-        File root = Environment.getExternalStorageDirectory();
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String filePath = root.getAbsolutePath()+"/DCIM/Camera/IMG_"+timeStamp+".jpg";
-        File file = new File(filePath);//creating an object from type File
-        try
-        {
-            file.createNewFile();
-            FileOutputStream ostream = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
-            ostream.close();
-        }
-         catch (FileNotFoundException e) {
-            e.printStackTrace();}
-          catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this,"Faild to save image", Toast.LENGTH_LONG).show();
-    }
-        return filePath;
 
     }
 

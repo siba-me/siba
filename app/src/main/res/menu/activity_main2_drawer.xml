@@ -7,15 +7,15 @@
         <item
             android:id="@+id/my_flights"
 
-            android:title="Import" />
+            android:title="My Flights" />
         <item
             android:id="@+id/my_parking"
 
-            android:title="Gallery" />
+            android:title="My Parking" />
         <item
             android:id="@+id/restautarants"
 
-            android:title="Slideshow" />
+            android:title="Restaurants" />
 
     </group>
 

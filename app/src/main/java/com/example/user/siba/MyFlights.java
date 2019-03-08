@@ -1,11 +1,15 @@
 package com.example.user.siba;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,7 +36,6 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
 
     private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
