@@ -77,13 +77,13 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
                 String image = BitMapToString(photo);
-
+                imageView2.setImageBitmap(bitmap);
             } catch (FileNotFoundException e){
                 e.printStackTrace();
 
             }
         }
-        Intent i = new Intent(this,MyParking.class);
+        Intent i = new Intent(this,parkingList.class);
         startActivity(i);
 
 
