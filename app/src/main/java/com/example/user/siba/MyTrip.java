@@ -10,8 +10,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class MyTrip extends AppCompatActivity {
-    TextView des,number,date,time;
+    TextView des,number,date,time, timeleft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MyTrip extends AppCompatActivity {
         number = findViewById(R.id.number);
         date = findViewById(R.id.date);
         time = findViewById(R.id.time);
+        timeleft = findViewById(R.id.tvTimeLeft);
 
         UserFlight flight = (UserFlight) getIntent().getSerializableExtra("userFlight");
         if(flight != null){
@@ -28,6 +31,17 @@ public class MyTrip extends AppCompatActivity {
             number.setText(flight.getNumber());
             date.setText(flight.getDate());
             time.setText(flight.getTime());
+
+            Calendar calendar2 = Calendar.getInstance();
+            long diff = calendar2.getTimeInMillis() - flight.getTimems();
+            long seconds = diff / 1000;
+            long minutes = seconds / 60;
+            long hours = minutes / 60;
+            long days = hours / 24;
+
+            timeleft.setText("Time Left: "+ diff + " days "+hours+" hours "+minutes+" minutess");
+            Toast.makeText(getApplicationContext(), "Diff: "+diff, Toast.LENGTH_LONG).show();
+
         }
 
     }
@@ -46,12 +60,6 @@ public class MyTrip extends AppCompatActivity {
                 break;
         }
         switch (item.getItemId()) {
-            case R.id.trip:
-                Intent i = new Intent(this,MyTrip.class);
-                startActivity(i);
-                break;
-        }
-        switch (item.getItemId()) {
             case R.id.myParking:
                 Intent i= new Intent(this,MyParking.class);
                 startActivity(i);
@@ -64,11 +72,7 @@ public class MyTrip extends AppCompatActivity {
                 break;
         }
 
-        switch (item.getItemId()) {
-            case R.id.logout:
-                Intent i= new Intent(this,MainActivity.class);
-                break;
-        }
+
         return true;
 
     }

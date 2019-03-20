@@ -49,9 +49,9 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
                 startActivity(i);
                 break;
         }
-        switch (item.getItemId()) {
-            case R.id.trip:
-                Intent i = new Intent(this,MyTrip.class);
+        switch (item.getItemId()){
+            case R.id.res:
+                Intent i = new Intent(this,Restaurants.class);
                 startActivity(i);
                 break;
         }
@@ -62,12 +62,6 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
                 break;
         }
 
-        switch (item.getItemId()) {
-            case R.id.logout:
-                Intent i= new Intent(this,MainActivity.class);
-                startActivity(i);
-                break;
-        }
         return true;
 
     }

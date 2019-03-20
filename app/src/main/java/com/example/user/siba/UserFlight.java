@@ -7,7 +7,7 @@ public class UserFlight implements Serializable{
     private String number;
     private String time;
     private String des;
-
+    private long timems;
     public UserFlight(String date, String number, String time, String des) {
 
         this.date = date;
@@ -46,6 +46,14 @@ public class UserFlight implements Serializable{
 
     public String getDes() {
         return des;
+    }
+
+    public long getTimems() {
+        return timems;
+    }
+
+    public void setTimems(long timems) {
+        this.timems = timems;
     }
 
     @Override

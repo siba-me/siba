@@ -3,21 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/trip"
-        android:title="My Trip" />
-    <item
         android:id="@+id/flight"
         android:title="My Flights" />
     <item
         android:id="@+id/myParking"
         android:title="My Parking" />
     <item
-        android:id="@+id/Fdetails"
-        android:title="Plan A Trip" />
-    <item
         android:id="@+id/res"
         android:title="Restaurants" />
-    <item
-        android:id="@+id/logout"
-        android:title="Logout" />
 </menu>

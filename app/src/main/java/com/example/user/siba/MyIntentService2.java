@@ -30,9 +30,9 @@ public class MyIntentService2 extends IntentService {
 
             Notification.Builder builder = new Notification.Builder(this);
 
-            builder.setContentTitle("My Title");
+            builder.setContentTitle("Time left");
 
-            builder.setContentText("This is the Body");
+            builder.setContentText("Time left:");
 
             builder.setSmallIcon(R.drawable.dog);
 

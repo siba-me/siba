@@ -53,12 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(i);
                     break;
             }
-            switch (item.getItemId()) {
-                case R.id.trip:
-                    Intent i = new Intent(this, MyTrip.class);
-                    startActivity(i);
-                    break;
-            }
 
             switch (item.getItemId()) {
                 case R.id.myParking:
