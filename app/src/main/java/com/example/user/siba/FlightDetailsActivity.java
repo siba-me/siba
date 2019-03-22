@@ -56,7 +56,6 @@ public class FlightDetailsActivity extends AppCompatActivity implements View.OnC
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 int hour = hourOfDay;
                 int min = minute;
-                Toast.makeText(getApplicationContext(), hourOfDay+":"+minute, Toast.LENGTH_SHORT).show();
                 calendar = Calendar.getInstance();
                 calendar.set(Calendar.HOUR_OF_DAY, hour);
                 calendar.set(Calendar.MINUTE, min);

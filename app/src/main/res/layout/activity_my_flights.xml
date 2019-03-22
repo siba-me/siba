@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/plane"
-    android:orientation="vertical"
+    android:background="@drawable/images"
     android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
     tools:context=".MyFlights">
 
     <ListView
         android:id="@+id/flist"
+        style="@android:style/Widget.ListView.Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="false"
         android:clickable="false"
-        android:focusable="false">
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textFilterEnabled="false">
 
     </ListView>
 

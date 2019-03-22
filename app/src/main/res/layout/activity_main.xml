@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="147dp"
+        android:layout_height="71dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -19,14 +19,14 @@
             android:layout_height="63dp"
             android:backgroundTint="@android:color/transparent"
             android:text="SignUp"
-            android:textAlignment="center"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="24sp" />
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="30sp"
+            android:textStyle="italic" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="156dp"
+        android:layout_height="190dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -36,8 +36,8 @@
             android:layout_height="63dp"
             android:backgroundTint="@android:color/transparent"
             android:text="SignIn"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="24sp" />
+            android:textSize="30sp"
+            android:textStyle="italic" />
     </LinearLayout>
 
 </LinearLayout>

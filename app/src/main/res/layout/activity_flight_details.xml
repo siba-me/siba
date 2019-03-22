@@ -42,10 +42,12 @@
         android:ems="10"
         android:hint="Flight No."
         android:inputType="textPersonName" />
+
     <TimePicker
+        android:id="@+id/timePicker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker"></TimePicker>
+        android:layout_height="wrap_content"></TimePicker>
+
     <Button
         android:id="@+id/button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"

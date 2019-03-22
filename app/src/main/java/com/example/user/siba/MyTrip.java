@@ -27,10 +27,10 @@ public class MyTrip extends AppCompatActivity {
 
         UserFlight flight = (UserFlight) getIntent().getSerializableExtra("userFlight");
         if(flight != null){
-            des.setText(flight.getDes());
-            number.setText(flight.getNumber());
-            date.setText(flight.getDate());
-            time.setText(flight.getTime());
+            des.setText("      Destination: " +flight.getDes());
+            number.setText("     Flight No.: "+flight.getNumber());
+            date.setText("     Date: "+flight.getDate());
+            time.setText("    Time: "+flight.getTime());
 
             Calendar calendar2 = Calendar.getInstance();
             long diff = calendar2.getTimeInMillis() - flight.getTimems();
@@ -39,7 +39,8 @@ public class MyTrip extends AppCompatActivity {
             long hours = minutes / 60;
             long days = hours / 24;
 
-            timeleft.setText("Time Left: "+ diff + " days "+hours+" hours "+minutes+" minutess");
+            timeleft.setText("Time Left: "
+                    + diff + " days       "+hours+" hours      "+minutes+"  minutess");
             Toast.makeText(getApplicationContext(), "Diff: "+diff, Toast.LENGTH_LONG).show();
 
         }
