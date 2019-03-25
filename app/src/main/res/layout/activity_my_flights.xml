@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/images"
+    android:background="@drawable/plane"
     android:descendantFocusability="blocksDescendants"
     android:orientation="vertical"
     tools:context=".MyFlights">

@@ -26,9 +26,14 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
 
         res1 = findViewById(R.id.res1);
         res= new ArrayList<>();
-        res.add(new Item(R.drawable.dog,"1"));
-        res.add(new Item(R.drawable.dog,"2"));
-        res.add(new Item(R.drawable.dog,"3"));
+        res.add(new Item(R.drawable.cafecafe,"Cafe Cafe , Terminal 3, 3rd floor"));
+        res.add(new Item(R.drawable.cafejoe,"Cafe Joe, Terminal 3, Departure hall, concourse D"));
+        res.add(new Item(R.drawable.kakao,"Kakao, Terminal 3, Arrivals hall"));
+        res.add(new Item(R.drawable.aroma,"Aroma Espresso bar , Terminal 3, Departure hall, Gate area"));
+        res.add(new Item(R.drawable.burgera,"Burger Ranch , Terminal 3, 3rd floor and Departure hall Food Gate area "));
+        res.add(new Item(R.drawable.pizzahut,"Pizza Hut , Terminal 3, 3rd floor and Departure hall Food Gate Area"));
+        res.add(new Item(R.drawable.redhot,"Red Hut , Terminal 3, Departure hall, Food Gate Area"));
+
 
         arrayAdapter = new CustomAdapter(this,R.layout.custom_row,res);
         res1.setAdapter(arrayAdapter);

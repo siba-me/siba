@@ -50,7 +50,7 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="194dp"
         android:layout_height="66dp"
         android:gravity="center"

@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="92dp"
         android:text="SignUp"
+
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
+        android:drawableLeft="@drawable/ic_person_outline_black_24dp"
         android:hint="username"
         android:inputType="textPersonName" />
 
@@ -31,6 +33,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:hint="E-mail"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -39,6 +42,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:hint="password"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
         android:inputType="textPassword"
         android:textAlignment="textStart" />
 
@@ -50,9 +54,12 @@
 
         <Button
             android:id="@+id/btDone"
-            android:layout_width="198dp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="160dp"
             android:layout_height="60dp"
-            android:text="SignUp" />
+            android:background="#DAB48D"
+            android:text="SignUp"
+            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>
