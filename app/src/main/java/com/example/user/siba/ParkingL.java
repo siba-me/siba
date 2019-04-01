@@ -36,5 +36,8 @@ public class ParkingL {
         this.image = image;
         this.information = information;
     }
+    public ParkingL(){
+
+    }
 
 }

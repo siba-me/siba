@@ -70,7 +70,8 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
             String image = BitMapToString(photo);
             ParkingL parkingL = new ParkingL(image, info.getText().toString());
             myRef.child(currentUser.getUid()).child("Parking").push().setValue(parkingL);
-
+            Intent i = new Intent(this,parkingList.class);
+            startActivity(i);
 
         }else if(requestCode == SELECT_IMAGE && resultCode == Activity.RESULT_OK){
             Uri targetUri = data.getData();
@@ -82,9 +83,9 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
                 e.printStackTrace();
 
             }
+            Intent i = new Intent(this,parkingList.class);
+            startActivity(i);
         }
-        Intent i = new Intent(this,parkingList.class);
-        startActivity(i);
 
 
     }
@@ -159,4 +160,4 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
             return null;
         }
     }
-    }
+}
