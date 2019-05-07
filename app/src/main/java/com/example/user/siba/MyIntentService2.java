@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.Context;
 import android.support.v4.app.NotificationManagerCompat;
 
 /**
@@ -30,9 +29,9 @@ public class MyIntentService2 extends IntentService {
 
             Notification.Builder builder = new Notification.Builder(this);
 
-            builder.setContentTitle("Time left");
+            builder.setContentTitle("Enjoy Your Flight");
 
-            builder.setContentText("Time left:");
+            builder.setContentText("Have a nice Flight ");
 
             builder.setSmallIcon(R.drawable.dog);
 

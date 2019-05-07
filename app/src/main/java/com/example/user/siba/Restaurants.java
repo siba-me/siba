@@ -66,6 +66,12 @@ public class Restaurants extends AppCompatActivity implements AdapterView.OnItem
                 startActivity(i);
                 break;
         }
+        switch (item.getItemId()) {
+            case R.id.parkingList:
+                Intent i= new Intent(this,parkingList.class);
+                startActivity(i);
+                break;
+        }
 
         return true;
 

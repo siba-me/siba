@@ -120,6 +120,11 @@ public class MyFlights extends AppCompatActivity implements AdapterView.OnItemCl
                 Intent i= new Intent(this,Restaurants.class);
                 startActivity(i);
                 break;
+        } switch (item.getItemId()) {
+            case R.id.parkingList:
+                Intent i= new Intent(this,parkingList.class);
+                startActivity(i);
+                break;
         }
 
         return true;

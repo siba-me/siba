@@ -38,8 +38,10 @@ public class MyTrip extends AppCompatActivity {
             long minutes = seconds / 60;
             long hours = minutes / 60;
             long days = hours / 24;
-
-            timeleft.setText("Time Left: "
+            if (diff<0)
+                timeleft.setText("You missed the flight or it ended");
+            else
+                timeleft.setText("Time Left: "
                     + diff + " days       "+hours+" hours      "+minutes+"  minutess");
             Toast.makeText(getApplicationContext(), "Diff: "+diff, Toast.LENGTH_LONG).show();
 

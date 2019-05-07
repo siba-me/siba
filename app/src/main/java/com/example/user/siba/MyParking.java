@@ -144,6 +144,12 @@ public class MyParking extends AppCompatActivity implements View.OnClickListener
                 startActivity(i);
                 break;
         }
+        switch (item.getItemId()) {
+            case R.id.parkingList:
+                Intent i= new Intent(this,parkingList.class);
+                startActivity(i);
+                break;
+        }
 
         return true;
 

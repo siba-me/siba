@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class parkingList extends AppCompatActivity {
     ListView parkingList;
-    ArrayAdapter arrayAdapter;
+   custom_adapter_par arrayAdapter;
     ArrayList<ParkingL> par;
 
 
@@ -37,7 +37,7 @@ public class parkingList extends AppCompatActivity {
         par = new ArrayList<>();
 
         parkingList = (ListView) findViewById(R.id.parkinglist);
-        arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,par);
+        arrayAdapter = new custom_adapter_par(this,R.layout.par_row,par);
         parkingList.setAdapter(arrayAdapter);
 
         reference.addChildEventListener(new ChildEventListener() {
