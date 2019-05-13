@@ -17,13 +17,13 @@ import java.util.Objects;
 
 import static java.util.Objects.*;
 
-public class custom_adapter_par extends ArrayAdapter<ParkingL> {
+public class customAdapterPar extends ArrayAdapter<ParkingL> {
     private int imageBitmap;
     private Context mContext;
     List<ParkingL> parkingLList;
 
 
-    public custom_adapter_par(@NonNull Context mContext, int imageBitmap, List<ParkingL> parkingLList) {
+    public customAdapterPar(@NonNull Context mContext, int imageBitmap, List<ParkingL> parkingLList) {
         super(mContext,imageBitmap,parkingLList);
         this.imageBitmap = imageBitmap;
         this.mContext = mContext;
