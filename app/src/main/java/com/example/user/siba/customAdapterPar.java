@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.util.Base64;
+import android.util.Printer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +19,15 @@ import java.util.Objects;
 import static java.util.Objects.*;
 
 public class customAdapterPar extends ArrayAdapter<ParkingL> {
-    private int imageBitmap;
+    private String imageBitmap;
+    private int setImageResource;
     private Context mContext;
     List<ParkingL> parkingLList;
 
 
-    public customAdapterPar(@NonNull Context mContext, int imageBitmap, List<ParkingL> parkingLList) {
-        super(mContext,imageBitmap,parkingLList);
-        this.imageBitmap = imageBitmap;
+    public customAdapterPar(@NonNull Context mContext, int setImageResource, List<ParkingL> parkingLList) {
+        super(mContext,setImageResource,parkingLList);
+        this.setImageResource = setImageResource;
         this.mContext = mContext;
         this.parkingLList = parkingLList;
     }
@@ -44,15 +46,15 @@ public class customAdapterPar extends ArrayAdapter<ParkingL> {
 
             ImageView imageView=(ImageView) v.findViewById(R.id.imageView2);
             String image = p.getImage();
-            Bitmap imageView = StringToBitmap(image);
-            imageView.setImageResource(Integer.parseInt(p.getImage()));
+            Bitmap imageView1 = StringToBitmap(image);
 
         }
         return v;
     }
-    public Bitmap StringToBitMap(String encodedString) {
+
+    private Bitmap StringToBitmap(String image) {
         try {
-            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            byte[] encodeByte = Base64.decode(imageBitmap, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0,
                     encodeByte.length);
             return bitmap;
@@ -60,6 +62,8 @@ public class customAdapterPar extends ArrayAdapter<ParkingL> {
             e.getMessage();
             return null;
         }
-}
+    }
 
 }
+
+

@@ -42,7 +42,7 @@ public class MyTrip extends AppCompatActivity {
                 timeleft.setText("You missed the flight or it ended");
             else
                 timeleft.setText("Time Left: "
-                    + diff + " days       "+hours+" hours      "+minutes+"  minutess");
+                    + calendar2.getTimeInMillis() + " days       "+flight.getTimems()+" hours      "+diff+"  minutess");
             Toast.makeText(getApplicationContext(), "Diff: "+diff, Toast.LENGTH_LONG).show();
 
         }

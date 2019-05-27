@@ -31,7 +31,7 @@ public class MyIntentService2 extends IntentService {
 
             builder.setContentTitle("Enjoy Your Flight");
 
-            builder.setContentText("Have a nice Flight ");
+            builder.setContentText("Don't Forget Your Passport");
 
             builder.setSmallIcon(R.drawable.dog);
 

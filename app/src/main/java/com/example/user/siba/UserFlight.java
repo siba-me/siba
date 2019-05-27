@@ -62,6 +62,7 @@ public class UserFlight implements Serializable{
                 "date='" + date + '\'' +
                 ",       Flight No=  '" + number + '\'' +
                 ",       time='" + time + '\'' +
-                ",       destination='" + des + '\'' +"";
+                ",       destination='" + des + '\'' +""
+                +" time ms: "+timems;
     }
 }
